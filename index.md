@@ -24,4 +24,4 @@
 
 ### Plugins
 
-- BlenderDir
+- [BlenderDir](https://github.com/DanielBoxer/BlenDir) - Extenção para criar estruturas de pastas automaticamente
