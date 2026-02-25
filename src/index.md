@@ -1,5 +1,7 @@
 # Recursos 3D
 
+Uma lista com recursos para artistas 3D.
+
 ## 🎨 Texturas
 
 - [freestylized.com](https://freestylized.com/) - Site com texturas estilizadas
