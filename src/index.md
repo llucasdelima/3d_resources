@@ -9,15 +9,21 @@ Uma lista com recursos para artistas 3D.
 - [ambientCG](https://ambientcg.com/) - Texturas variadas com licença CC0
 - [Poly Haven](https://polyhaven.com/textures) - Texturas gratuítas em alta qualidade
 
+---
+
 ## 🌈 HDRI
 
 - [freestylized.com](https://freestylized.com/all-skybox/) - HDRI estelizados
 - [Poly Haven](https://polyhaven.com/textures) - HDRI gratuítos em alta qualidade
 
+---
+
 ## 🤖 IA
 
 - ///
 - ///
+
+---
 
 ## 🎉 Blender
 

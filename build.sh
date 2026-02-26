@@ -1,27 +1,35 @@
 #!/bin/bash
 
-# 1. Limpa a pasta dist para garantir um build do zero
+# 1. Validação de segurança: Garante que você está na pasta certa
+if [ ! -f "src/index.md" ]; then
+    echo "❌ Erro: O arquivo src/index.md não foi encontrado."
+    echo "Certifique-se de rodar este script na raiz do projeto."
+    exit 1
+fi
+
+# 2. Limpeza segura da pasta dist
 if [ -d "dist" ]; then
-    echo "Sending old build to trash..."
+    echo "🗑️  Limpando build antigo (movendo para a lixeira)..."
     gio trash dist
 fi
 
+# 3. Preparação do ambiente
+echo "📂 Criando pasta dist e copiando assets..."
 mkdir -p dist
-
-# 2. Espelha a pasta assets para dentro da dist
-# Usamos -r para recursivo
-echo "Syncing assets..."
 cp -r assets dist/
 
-# 3. Executa o Pandoc
-# Note que o caminho do CSS no -c é relativo ao HTML final que estará na dist.
-# Como agora a pasta assets estará LÁ DENTRO, o caminho é direto.
-echo "Running Pandoc..."
+# 4. O Build do Pandoc
+# --standalone (-s): Para criar o documento HTML completo
+# --metadata title: Define o nome da página na aba do navegador
+# -c: Aponta para o CSS já dentro da pasta dist
+# -o: Define o arquivo de saída
+echo "🏗️  Convertendo Markdown para HTML..."
 pandoc src/index.md \
     -s \
-    --metadata title="3D Resource Library" \
+    --template=src/templates/template.html \
+    --metadata title="Recursos Arte 3D" \
     -c assets/css/style.css \
-    --include-in-header=assets/js/script.js \
     -o dist/index.html
 
-echo "✅ Build finalizado com sucesso em /dist!"
+echo "✅ Build concluído com sucesso!"
+echo "🚀 Agora você pode rodar: git add . && git commit -m 'Novo build' && git push"
